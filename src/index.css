@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply transition-colors duration-500 bg-coffee-100 text-coffee-900;
+  }
+
+  body.dark {
+    @apply bg-[#0c0806] text-coffee-50;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-coffee-100 dark:bg-[#120d0b];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-coffee-400 dark:bg-coffee-700 rounded-full hover:bg-coffee-500 dark:hover:bg-coffee-600;
+}
+
+/* Custom styles for glowing glassmorphism */
+.glass-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  @apply bg-coffee-100/70 border-b border-coffee-200/20 dark:bg-[#0c0806]/70 dark:border-coffee-900/30;
+}
+
+/* Custom animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
